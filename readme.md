@@ -1,110 +1,91 @@
-📦 IDN Media Auth API
-API sederhana untuk login IDN Media (Cognito), login SSO, ambil progress tier, lalu logout & revoke token.
-Ditulis dengan Node.js, sudah mendukung CORS (allow all) sehingga bisa diakses lintas-origin.
-Handler langsung pada root (tidak di dalam folder /api), file bernama app.js.
+# IDN Media Auth API
 
-🚀 Fitur
-Login ke AWS Cognito IDN Media (USER_PASSWORD_AUTH)
+/*
+ * IDN Media Auth API handler
+ *
+ * Login ke Cognito, login SSO, ambil progress tier, lalu logout & revoke.
+ * Disiapkan untuk dideploy (contoh: di Vercel).
+ *
+ * ✅ CORS: Allow all origins
+ * 📄 Endpoint: POST ke root URL (default, tidak pakai folder /api)
+ *
+ * File: app.js
+ */
 
-Login ke SSO IDN App
 
-Ambil progress tier
+// 📌 Cara Deploy
+/*
+ * 1. Letakkan file `app.js` di root project.
+ * 2. Deploy ke Vercel (atau server lain yang menjalankan Node.js).
+ * 3. Endpoint siap diakses: POST ke https://<your-project>.vercel.app/
+ */
 
-Global Sign Out
 
-Revoke refresh token
+// 📌 Cara Pakai
+/*
+ * Method: POST
+ * URL: /
+ * Headers: Content-Type: application/json
+ *
+ * Body:
+ * {
+ *   "username": "your_username",
+ *   "password": "your_password"
+ * }
+ */
 
-Allow semua CORS (Access-Control-Allow-Origin: *)
 
-📂 Struktur
-app.js → handler utama
-
-Tidak perlu folder /api
-
-POST ke URL default root deploy
-
-🛠️ Cara Deploy
-📌 Local Development
-Jika ingin coba lokal:
-
-bash
-Salin
-Edit
-npm install
-node app.js
-(opsional: gunakan server HTTP seperti Express untuk local testing)
-
-📌 Deploy di Vercel
-Letakkan file ini (app.js) di root project.
-
-Deploy ke Vercel.
-
-Endpoint bisa diakses pada:
-
-cpp
-Salin
-Edit
-https://<project>.vercel.app/
-📡 Cara Pakai
-Endpoint
-POST https://<project>.vercel.app/
-
-Request body:
-json
-Salin
-Edit
-{
-  "username": "email/username",
-  "password": "password"
-}
-Header: Content-Type: application/json
-
-Contoh Request: curl
-bash
-Salin
-Edit
-curl -X POST https://<project>.vercel.app/ \
+// 📌 Contoh: curl
+/*
+curl -X POST https://<your-project>.vercel.app/ \
   -H "Content-Type: application/json" \
   -d '{"username":"your_username","password":"your_password"}'
-Contoh Request: JavaScript (browser)
-js
-Salin
-Edit
-fetch('https://<project>.vercel.app/', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ username: 'your_username', password: 'your_password' })
+*/
+
+
+// 📌 Contoh: Browser fetch
+/*
+fetch("https://<your-project>.vercel.app/", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    username: "your_username",
+    password: "your_password"
+  })
 })
   .then(res => res.json())
   .then(console.log)
   .catch(console.error);
-Response
-Berhasil:
+*/
 
-json
-Salin
-Edit
+
+// 📌 Response: Success
+/*
 {
-  "loginBySSO": { ... },
-  "progress": { ... },
-  "logout": "Logout global berhasil",
-  "revoke": "Revoke token berhasil"
+  loginBySSO: { ... },
+  progress: { ... },
+  logout: "Logout global berhasil",
+  revoke: "Revoke token berhasil"
 }
-Gagal:
+*/
 
-json
-Salin
-Edit
+
+// 📌 Response: Error
+/*
 {
-  "error": "Pesan error"
+  error: "Pesan error"
 }
-🌐 CORS
-Header CORS yang sudah disiapkan:
+*/
 
-pgsql
-Salin
-Edit
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: POST, OPTIONS
-Access-Control-Allow-Headers: Content-Type
-Handler ini juga merespons OPTIONS (preflight) dengan 204 No Content dan header yang sesuai.
+
+// 📌 CORS
+/*
+ * Handler ini sudah otomatis menyertakan header:
+ * Access-Control-Allow-Origin: *
+ * Access-Control-Allow-Methods: POST, OPTIONS
+ * Access-Control-Allow-Headers: Content-Type
+ *
+ * Jadi aman untuk diakses lintas-origin dari browser.
+ */
