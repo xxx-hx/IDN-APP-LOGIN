@@ -45,7 +45,6 @@ curl -X POST https://<your-project>.vercel.app/ \
 
 📌 Contoh: Browser fetch
 
-/*
 fetch("https://<your-project>.vercel.app/", {
   method: "POST",
   headers: {
@@ -59,7 +58,7 @@ fetch("https://<your-project>.vercel.app/", {
   .then(res => res.json())
   .then(console.log)
   .catch(console.error);
-*/
+
 
 
 📌 Response: Success
