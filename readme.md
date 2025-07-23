@@ -10,19 +10,19 @@
  * 📄 Endpoint: POST ke root URL (default, tidak pakai folder /api)
  *
  * File: app.js
- */
 
 
-// 📌 Cara Deploy
-/*
+
+📌 Cara Deploy
+
  * 1. Letakkan file `app.js` di root project.
  * 2. Deploy ke Vercel (atau server lain yang menjalankan Node.js).
  * 3. Endpoint siap diakses: POST ke https://<your-project>.vercel.app/
- */
+ *
 
 
-// 📌 Cara Pakai
-/*
+📌 Cara Pakai
+
  * Method: POST
  * URL: /
  * Headers: Content-Type: application/json
@@ -32,19 +32,17 @@
  *   "username": "your_username",
  *   "password": "your_password"
  * }
- */
 
 
-// 📌 Contoh: curl
-/*
+
+📌 Contoh: curl
 curl -X POST https://<your-project>.vercel.app/ \
   -H "Content-Type: application/json" \
   -d '{"username":"your_username","password":"your_password"}'
-*/
 
 
-// 📌 Contoh: Browser fetch
-/*
+📌 Contoh: Browser fetch
+
 fetch("https://<your-project>.vercel.app/", {
   method: "POST",
   headers: {
@@ -58,34 +56,34 @@ fetch("https://<your-project>.vercel.app/", {
   .then(res => res.json())
   .then(console.log)
   .catch(console.error);
-*/
 
 
-// 📌 Response: Success
-/*
+
+📌 Response: Success
+
 {
   loginBySSO: { ... },
   progress: { ... },
   logout: "Logout global berhasil",
   revoke: "Revoke token berhasil"
 }
-*/
 
 
-// 📌 Response: Error
-/*
+
+📌 Response: Error
+
 {
   error: "Pesan error"
 }
-*/
 
 
-// 📌 CORS
-/*
+
+📌 CORS
+
  * Handler ini sudah otomatis menyertakan header:
  * Access-Control-Allow-Origin: *
  * Access-Control-Allow-Methods: POST, OPTIONS
  * Access-Control-Allow-Headers: Content-Type
  *
  * Jadi aman untuk diakses lintas-origin dari browser.
- */
+
