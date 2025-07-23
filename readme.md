@@ -11,13 +11,13 @@
  *
  * File: app.js
 
-
+-------------------------------------------------------------
 
 📌 Cara Deploy
 
- * 1. Letakkan file `app.js` di root project.
- * 2. Deploy ke Vercel (atau server lain yang menjalankan Node.js).
- * 3. Endpoint siap diakses: POST ke https://<your-project>.vercel.app/
+ * Letakkan file `app.js` di root project.
+ * Deploy ke Vercel (atau server lain yang menjalankan Node.js).
+ * Endpoint siap diakses: POST ke https://<your-project>.vercel.app/
  *
 
 
