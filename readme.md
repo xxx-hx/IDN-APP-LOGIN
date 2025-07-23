@@ -20,6 +20,7 @@
  * Endpoint siap diakses: POST ke https://<your-project>.vercel.app/
  *
 
+-------------------------------------------------------------
 
 📌 Cara Pakai
 
@@ -33,13 +34,14 @@
  *   "password": "your_password"
  * }
 
-
+-------------------------------------------------------------
 
 📌 Contoh: curl
 curl -X POST https://<your-project>.vercel.app/ \
   -H "Content-Type: application/json" \
   -d '{"username":"your_username","password":"your_password"}'
 
+-------------------------------------------------------------
 
 📌 Contoh: Browser fetch
 
@@ -76,7 +78,7 @@ fetch("https://<your-project>.vercel.app/", {
   error: "Pesan error"
 }
 
-
+-------------------------------------------------------------
 
 📌 CORS
 
